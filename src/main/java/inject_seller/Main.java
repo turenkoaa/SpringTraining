@@ -1,9 +1,9 @@
-package inject_and_streams;
+package inject_seller;
 
-import inject_and_streams.services.ServiceA;
-import inject_and_streams.services.ServiceB;
-import inject_and_streams.services.ServiceC;
-import inject_and_streams.services.ServiceD;
+import inject_seller.services.ServiceA;
+import inject_seller.services.ServiceB;
+import inject_seller.services.ServiceC;
+import inject_seller.services.ServiceD;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {

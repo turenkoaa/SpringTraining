@@ -1,4 +1,4 @@
 # *~
 .idea/
-javaClass.iml
+*.iml
 target/

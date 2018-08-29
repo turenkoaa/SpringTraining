@@ -1,4 +1,4 @@
-package two_annotations;
+package benchmark_and_transactional;
 
 import org.reflections.ReflectionUtils;
 import org.springframework.cglib.proxy.Enhancer;

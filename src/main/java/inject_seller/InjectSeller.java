@@ -1,8 +1,8 @@
-package two_annotations;
+package inject_seller;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface  Transactional {
+public @interface InjectSeller {
 }

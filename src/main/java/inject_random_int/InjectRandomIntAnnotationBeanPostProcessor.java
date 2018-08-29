@@ -1,4 +1,4 @@
-package com.db.xml_example;
+package inject_random_int;
 
 import lombok.SneakyThrows;
 import org.reflections.ReflectionUtils;

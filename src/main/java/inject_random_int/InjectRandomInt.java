@@ -1,4 +1,4 @@
-package com.db.xml_example;
+package inject_random_int;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

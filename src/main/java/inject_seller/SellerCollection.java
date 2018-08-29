@@ -1,4 +1,4 @@
-package inject_and_streams;
+package inject_seller;
 
 import javafx.util.Pair;
 

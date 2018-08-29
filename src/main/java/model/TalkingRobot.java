@@ -1,6 +1,6 @@
-package com.db.xml_example;
+package model;
 
-import lombok.Data;
+import inject_random_int.InjectRandomInt;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,5 +21,9 @@ public class TalkingRobot {
     @PostConstruct
     private void talk(){
         quoters.forEach(Quoter::sayQuote);
+    }
+
+    public void killAll() {
+        System.out.println("killed");
     }
 }

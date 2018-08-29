@@ -1,4 +1,4 @@
-package two_annotations;
+package benchmark_and_transactional;
 
 import lombok.SneakyThrows;
 import org.springframework.beans.BeansException;
@@ -8,14 +8,13 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BenchmarkAnnotationBeanPostProcessor implements BeanPostProcessor {
-
+public class TransactionalAnnotationBeanPostProcessor implements BeanPostProcessor {
     private Map<String, Class> proxyMap = new HashMap<>();
 
     @SneakyThrows
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        proxyMap.put(beanName, bean.getClass());
+        proxyMap.putIfAbsent(beanName, bean.getClass());
         return bean;
     }
 
@@ -24,10 +23,10 @@ public class BenchmarkAnnotationBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         Class type = proxyMap.get(beanName);
         return ClassOrMethodAnnotationWrapper.wrapWithProxy(
-                    Benchmark.class,
-                    bean,
-                    type,
-                    (o, method, args) -> invoke(method, args, type, bean));
+                Transactional.class,
+                bean,
+                type,
+                (o, method, args) -> invoke(method, args, type,bean));
     }
 
     @SneakyThrows
@@ -35,12 +34,9 @@ public class BenchmarkAnnotationBeanPostProcessor implements BeanPostProcessor {
         Method targetMethod = type.getMethod(method.getName(), method.getParameterTypes());
         Object retVal;
         if (type.isAnnotationPresent(Benchmark.class) || targetMethod.isAnnotationPresent(Benchmark.class)) {
-            System.out.println("************** benchmark for method " + method.getName() + " started ***************");
-            long start = System.nanoTime();
+            System.out.println("************** transactional for method " + method.getName() + " started ***************");
             retVal = method.invoke(t, args);
-            long end = System.nanoTime();
-            System.out.println("Method " + method.getName() + ": " + (end - start) + " nanoseconds");
-            System.out.println("************** benchmark for method " + method.getName() + " finished ***************");
+            System.out.println("************** transactional for method " + method.getName() + " finished ***************");
 
         } else {
             retVal = method.invoke(t, args);

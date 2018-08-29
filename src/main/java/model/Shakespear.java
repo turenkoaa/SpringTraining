@@ -1,8 +1,8 @@
-package com.db.xml_example;
+package model;
 
 import lombok.Setter;
 
-public class ShakeSpearQuoter implements Quoter {
+public class Shakespear implements Quoter {
     @Setter
     private String message;
 

@@ -1,4 +1,4 @@
-package com.db.xml_example;
+package model;
 
 public interface Quoter {
     void sayQuote();
