@@ -4,26 +4,27 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean class="inject_random_int.InjectRandomIntAnnotationBeanPostProcessor"/>
-    <bean class="inject_seller.InjectSellerAnnotationBeanPostProcessor"/>
-    <bean class="benchmark_and_transactional.TransactionalAnnotationBeanPostProcessor"/>
-    <bean class="benchmark_and_transactional.BenchmarkAnnotationBeanPostProcessor"/>
-    <bean class="bean_factory_definitions.BeanDefinitionAnalyzerBeanFactoryPostProcessor"/>
-    <bean class="deprecated.DeprecatedAuditBeanFactoryPostProcessor"/>
+    <bean class="com.db.inject_random_int.InjectRandomIntAnnotationBeanPostProcessor"/>
+    <bean class="com.db.inject_seller.InjectSellerAnnotationBeanPostProcessor"/>
+    <bean class="com.db.benchmark_and_transactional.TransactionalAnnotationBeanPostProcessor"/>
+    <bean class="com.db.benchmark_and_transactional.BenchmarkAnnotationBeanPostProcessor"/>
+    <bean class="com.db.bean_factory_definitions.BeanDefinitionAnalyzerBeanFactoryPostProcessor"/>
+    <bean class="com.db.deprecated.DeprecatedAuditBeanFactoryPostProcessor"/>
 
-    <bean class="inject_seller.services.ServiceA"/>
-    <bean class="inject_seller.services.ServiceB"/>
-    <bean class="inject_seller.services.ServiceC"/>
-    <bean class="inject_seller.services.ServiceD"/>
-    <!--<bean class="inject_seller.services.ServiceE"/>-->
+    <bean class="com.db.inject_seller.services.ServiceA"/>
+    <bean class="com.db.inject_seller.services.ServiceB"/>
+    <bean class="com.db.inject_seller.services.ServiceC"/>
+    <bean class="com.db.inject_seller.services.ServiceD"/>
+    <!--<bean class="com.db.inject_seller.services.ServiceE"/>-->
 
-    <context:annotation-config/>
+    <context:component-scan base-package="com.db"/>
+    <context:property-placeholder location="classpath:quotes.properties"/>
 
-    <bean id="shakeSpear" name="shakeSpearName" class="model.Shakespear">
-        <property name="message" value="To be or not to be"/>
+    <bean id="shakeSpear" name="shakeSpearName" class="com.db.model.Shakespear">
+        <property name="message" value="${quote}"/>
     </bean>
 
-    <bean id="terminator" name="terminator" class="model.Terminator">
+    <bean id="terminator" name="terminator" class="com.db.model.Terminator">
         <property name="messages">
             <list value-type="java.lang.String">
                 <value>I will be back</value>
@@ -37,9 +38,9 @@
         <constructor-arg index="0" value="trust me"/>
     </bean>
 
-    <bean id="talkingRobot" class="model.TalkingRobot" destroy-method="killAll">
+    <bean id="talkingRobot" class="com.db.model.TalkingRobot" destroy-method="killAll">
         <property name="quoters">
-            <list value-type="model.Quoter">
+            <list value-type="com.db.model.Quoter">
                 <ref bean="shakeSpear"/>
                 <ref bean="terminator"/>
             </list>
