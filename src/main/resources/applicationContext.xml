@@ -6,6 +6,15 @@
     <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
 
     <bean class="com.db.xml_example.InjectRandomIntAnnotationBeanPostProcessor"/>
+    <bean class="inject_and_streams.InjectSellerAnnotationBeanPostProcessor"/>
+    <bean class="two_annotations.TransactionalAnnotationBeanPostProcessor"/>
+    <bean class="two_annotations.BenchmarkAnnotationBeanPostProcessor"/>
+
+    <bean class="inject_and_streams.services.ServiceA"/>
+    <bean class="inject_and_streams.services.ServiceB"/>
+    <bean class="inject_and_streams.services.ServiceC"/>
+    <bean class="inject_and_streams.services.ServiceD"/>
+    <!--<bean class="inject_and_streams.services.ServiceE"/>-->
 
     <bean id="shakeSpear" name="shakeSpearName" class="com.db.xml_example.ShakeSpearQuoter">
         <property name="message" value="To be or not to be"/>
