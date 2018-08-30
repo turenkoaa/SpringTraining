@@ -1,13 +1,15 @@
-package com.db.benchmark_and_transactional;
+package com.db.quoters.benchmark_and_transactional;
 
 import lombok.SneakyThrows;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class TransactionalAnnotationBeanPostProcessor implements BeanPostProcessor {
     private Map<String, Class> proxyMap = new HashMap<>();
 

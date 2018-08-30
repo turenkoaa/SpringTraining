@@ -1,4 +1,4 @@
-package com.db.inject_random_int;
+package com.db.quoters.inject_random_int;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

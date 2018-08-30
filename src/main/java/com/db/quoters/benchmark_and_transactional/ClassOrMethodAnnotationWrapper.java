@@ -1,10 +1,12 @@
-package com.db.benchmark_and_transactional;
+package com.db.quoters.benchmark_and_transactional;
 
 import org.reflections.ReflectionUtils;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.InvocationHandler;
 import org.springframework.cglib.proxy.Proxy;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ClassOrMethodAnnotationWrapper {
 
     public static Object wrapWithProxy(Class annotation, Object t, Class<?> type, InvocationHandler invocationHandler) {

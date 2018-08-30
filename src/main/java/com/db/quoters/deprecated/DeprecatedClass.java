@@ -1,4 +1,4 @@
-package com.db.deprecated;
+package com.db.quoters.deprecated;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

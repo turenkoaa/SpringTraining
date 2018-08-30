@@ -1,6 +1,6 @@
-package com.db.deprecated;
+package com.db.quoters.deprecated;
 
-import com.db.model.Terminator;
+import com.db.quoters.model.Terminator;
 
 public class T1000 extends Terminator {
     @Override

@@ -1,14 +1,16 @@
-package com.db.inject_random_int;
+package com.db.quoters.inject_random_int;
 
 import lombok.SneakyThrows;
 import org.reflections.ReflectionUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 import java.util.Random;
 import java.util.Set;
 
+@Component
 public class InjectRandomIntAnnotationBeanPostProcessor implements BeanPostProcessor {
 
     private Random random = new Random();
