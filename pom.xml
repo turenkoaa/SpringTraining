@@ -35,6 +35,12 @@
     </build>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework.retry/spring-retry -->
+        <dependency>
+            <groupId>org.SPRINGFRAMEWORK.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+            <version>1.2.2.RELEASE</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -93,12 +99,7 @@
             <artifactId>aspectjweaver</artifactId>
             <version>1.9.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.retry/spring-retry -->
-        <dependency>
-            <groupId>org.springframework.retry</groupId>
-            <artifactId>spring-retry</artifactId>
-            <version>1.2.2.RELEASE</version>
-        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -107,6 +108,16 @@
         </dependency>
 
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <properties>
         <spring.version>5.0.8.RELEASE</spring.version>
